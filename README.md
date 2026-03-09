@@ -38,17 +38,30 @@ To run the script right now, follow these steps:
 
 ```javascript
 (async function() {
-    const url = "[https://raw.githubusercontent.com/q6r/ClearDm/main/clear.js](https://raw.githubusercontent.com/q6r/ClearDm/main/clear.js)";
-    const res = await fetch(`${url}?t=${Date.now()}`);
-    const code = await res.text();
+    const url = "https://raw.githubusercontent.com/q6r/ClearDm/refs/heads/main/clear.js";
     
-    const blob = new Blob([code], { type: 'application/javascript' });
-    const objUrl = URL.createObjectURL(blob);
-    
-    const script = document.createElement("script");
-    script.src = objUrl;
-    
-    document.head.appendChild(script);
+    try {
+        console.log("%c[Loader] %cTentando contornar CSP...", "color: #5865F2; font-weight: bold;", "color: #fff;");
+        
+        const response = await fetch(`${url}?t=${Date.now()}`);
+        if (!response.ok) throw new Error(`Erro: ${response.statusText}`);
+        
+        const code = await response.text();
+        
+        const blob = new Blob([code], { type: 'application/javascript' });
+        const objectUrl = URL.createObjectURL(blob);
+        
+        const script = document.createElement("script");
+        script.src = objectUrl;
+        script.onload = () => {
+            URL.revokeObjectURL(objectUrl);
+            console.log("%c[Loader] %cScript injetado via Blob com sucesso!", "color: #43b581; font-weight: bold;", "color: #fff;");
+        };
+        
+        document.head.appendChild(script);
+    } catch (err) {
+        console.error("[Loader] Erro crítico:", err);
+    }
 })();
 ```
 

@@ -9,11 +9,7 @@ A lightweight and elegant script to automate the deletion of your own messages i
 
 ## Interface
 
-### Home Panel
-![Home Cleaner](https://cdn.traumas.cc/uploads/image222222-12ff622625cbb16366ccf2588138d882.png)
-
-### Configuration Panel
-![Config Cleaner](https://cdn.traumas.cc/uploads/image2213-f798ad3d6302da9e545579f453b9daa4.png)
+![Cleaner](https://cdn.traumas.cc/uploads/Screenshot%202026-03-10%20084103-45ed0b837e9ff0783fe3ae0b5ab1d716.png)
 
 ---
 

@@ -37,7 +37,7 @@ To run the script right now, follow these steps:
 
 ```javascript
 (async function() {
-    const url = "[https://raw.githubusercontent.com/q6r/ClearDm/refs/heads/main/clear.js](https://raw.githubusercontent.com/q6r/ClearDm/refs/heads/main/clear.js)";
+    const url = "https://raw.githubusercontent.com/q6r/ClearDm/refs/heads/main/clear.js";
     
     try {
         console.log("%c[Loader] %cTentando contornar CSP...", "color: #5865F2; font-weight: bold;", "color: #fff;");

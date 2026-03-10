@@ -3,7 +3,7 @@
 License: MIT
 Discord: Official API v9
 
-A lightweight and elegant script to automate the deletion of your own messages in Discord DMs (Direct Messages). Features a minimalist interface, channel queuing support, and persistent settings via IndexedDB.
+A lightweight, elegant, and powerful script to automate the deletion of your own messages in Discord DMs (Direct Messages) and Server Channels. Features a minimalist UI, intelligent queuing, mass-clearing tools, and persistent settings via IndexedDB.
 
 ---
 
@@ -15,12 +15,15 @@ A lightweight and elegant script to automate the deletion of your own messages i
 
 ## Features
 
-* Target Selection: Choose any DM chat directly from a dropdown menu with user avatars.
-* Processing Queue: Add multiple channels to the queue, and the script will process them sequentially.
-* Quantity Control: Set a message limit or leave it empty to delete your entire history.
-* Delay Persistence: The wait time between deletions (Delay) is saved in your browser's database (IndexedDB), keeping your preference even after closing Discord.
-* Clean Interface: Dark design inspired by Discord's aesthetic, featuring smooth animations and a progress bar.
-* Safety: Automatically handles Discord Rate Limits (429 errors).
+* **Multi-Environment Tabs:** Seamlessly switch between clearing Direct Messages and Server Channels with dedicated dropdowns for Guilds and Channels.
+* **Clear Open DMs Tool:** A massive time-saver. Automatically scans your open DMs and adds them all to the deletion queue with a single click.
+* **Whitelist System:** Protect specific friends or important chats. Add User IDs or Channel IDs to the Whitelist to prevent them from being affected by the "Clear Open DMs" tool.
+* **Auto-Close Toggle:** Choose whether the script should automatically close the DM channel in your sidebar after finishing the message wipe.
+* **Processing Queue:** Add multiple channels to the queue, and the script will process them sequentially in the background.
+* **Quantity Control:** Set a precise message limit or leave it empty to delete your entire history in that chat.
+* **Persistent Settings:** Your Delay configurations and Whitelist are saved locally in your browser's database (IndexedDB), persisting across sessions.
+* **Clean & Modern UI:** Dark design matching Discord's aesthetic, featuring Montserrat typography, smooth CSS animations, a dynamic progress bar, and a minimalist author card (fetching avatars natively to bypass CSP).
+* **Safety:** Automatically handles Discord Rate Limits (429 errors) by pausing and retrying.
 
 ---
 
@@ -34,7 +37,7 @@ To run the script right now, follow these steps:
 
 ```javascript
 (async function() {
-    const url = "https://raw.githubusercontent.com/q6r/ClearDm/refs/heads/main/clear.js";
+    const url = "[https://raw.githubusercontent.com/q6r/ClearDm/refs/heads/main/clear.js](https://raw.githubusercontent.com/q6r/ClearDm/refs/heads/main/clear.js)";
     
     try {
         console.log("%c[Loader] %cTentando contornar CSP...", "color: #5865F2; font-weight: bold;", "color: #fff;");
@@ -59,17 +62,22 @@ To run the script right now, follow these steps:
         console.error("[Loader] Erro crítico:", err);
     }
 })();
+
 ```
 
 ---
 
-## Settings
+## Tools & Settings
 
 ### Delay (Wait Time)
+
 The default delay is 1100ms.
-* Why? This helps prevent spam detection and potential bans for bot-like behavior.
-* How to change? Click the gear icon at the top of the panel.
-* Saving: The value you enter will be permanently saved via IndexedDB in your browser's user profile.
+
+* **Why?** This helps prevent spam detection and potential API bans for bot-like behavior. You can adjust this in the Settings (gear icon).
+
+### Whitelist
+
+* **How it works:** Open the Whitelist panel from the Tools section and paste the ID of any User or Channel. The `Clear DMs Open` function will completely ignore these targets, keeping your important conversations safe.
 
 ---
 
@@ -80,12 +88,14 @@ Using self-bots or automation scripts that interact with the Discord API may vio
 ---
 
 ## Technologies
+
 * JavaScript (ES6+)
 * Discord API (v9)
-* IndexedDB (Local storage)
-* CSS Keyframe Animations
+* IndexedDB (Local storage persistence)
+* CSS Keyframe Animations & DOM Manipulation
 
 ---
 
 ### Contributions
+
 Feel free to open an Issue or submit a Pull Request for UI improvements or new features!
